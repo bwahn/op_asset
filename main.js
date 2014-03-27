@@ -136,6 +136,9 @@ function usage(msg) {
         directory: dir,
         log: LOG
     });
+	server.get(/\/docs\/public\/?.*/, restify.serveStatic({
+  		directory: './public'
+	}));
 
     // At last, let's rock and roll
     server.listen((options.port || 8080), function onListening() {
